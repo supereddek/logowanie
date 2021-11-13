@@ -29,12 +29,12 @@ public class MainWindow extends JFrame implements ActionListener {
         super(title);
         // User Label
         userLabel = new JLabel();
-        userLabel.setText("User Name :");
+        userLabel.setText("Nazwa użytkownika :");
         userNameInput = new JTextField();
 
         // Password
         passwordLabel = new JLabel();
-        passwordLabel.setText("Password :");
+        passwordLabel.setText("Hasło :");
         userPasswordInput = new JPasswordField();
 
         // Login and cancel
@@ -67,13 +67,11 @@ public class MainWindow extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         //Login button
        if(e.getSource() == this.loginButton) {
-           System.out.println("klik");
            String nameInput = userNameInput.getText();
-           String passwordInput = userPasswordInput.getText();
+           String passwordInput = String.valueOf(userPasswordInput.getPassword());
 
            if (PASSWORDS.containsKey(nameInput) && PASSWORDS.get(nameInput).equals( passwordInput)){
                panel.setBackground(Color.GREEN);
-               System.out.println("Działa");
            } else {
                panel.setBackground(Color.RED);
            }
